@@ -1,0 +1,58 @@
+<div class="main py-5">
+    <div class="d-flex flex-column">
+        <ul class="list-group d-flex flex-row">
+            <li class="list-group-item d-flex align-items-center w-100 justify-content-between border-0">
+                <div class="d-flex justify-content-between col-4">
+                    <span class="col-5" style="font-weight: bold;">
+                        pc name
+                    </span>
+                    <span class="col-5 pointer" style="font-weight: bold;" (click)="sort('price')" title="click to sort">
+                        pc price
+                    </span>
+                    <span class="col-5" style="font-weight: bold;">
+                        pc image
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item d-flex align-items-center  justify-content-between"
+                *ngFor="let pc of pcs; let i = index">
+                <div class="d-flex justify-content-between col-4 align-items-center">
+                    <span class="col-5">
+
+                        {{pc?.productName}}
+                    </span>
+
+                    <span class="col-5">
+                        {{pc?.price }}
+                    </span>
+                    <span class="col-5">
+                        <img class="img" [src]="pc?.ImageUrl" alt="">
+
+                    </span>
+                </div>
+
+                <img class="img pointer" (click)="removeItem(i)" title="click to delete"
+                    src="https://previews.123rf.com/images/larryrains/larryrains1903/larryrains190300067/120066926-trash-can-mascot-a-vector-pctoon-illustration-of-a-aluminum-trash-can-mascot-.jpg"
+                    alt="">
+            </li>
+        </ul>
+    </div>
+
+
+
+    <form [formGroup]="posts" (submit)="addPost(posts)" class="mt-5 pt-5">
+        <label for="exampleFormControlInput1" class="pl-2">pc name</label>
+        <input formControlName="productName" type="text" class="form-control mb-3" id="exampleFormControlInput1"
+            placeholder="name">
+        <label for="exampleFormControlInput2" class="pl-2">pc price</label>
+        <input formControlName="price" type="text" class="form-control mb-3" id="exampleFormControlInput2"
+            placeholder="price">
+        <label for="exampleFormControlInput3" class="pl-2">pc image</label>
+        <!-- <input type="file" formControlName="ImageUrl" class="form-control" id="exampleFormControlInput3"> -->
+        <input type="text" formControlName="ImageUrl" class="form-control mb-3" id="exampleFormControlInput3"
+            placeholder="enter image adress">
+        <button type="submit" class="btn btn-dark" [disabled]="!posts.valid">Confirm</button>
+    </form>
+</div>

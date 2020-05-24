@@ -1,0 +1,25 @@
+.img {
+  height: 100%;
+  max-height: 90px;
+  width: 120px;
+}
+.pointer {
+  cursor: pointer;
+}
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  min-height: 50px;
+}
+.main {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
